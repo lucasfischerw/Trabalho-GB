@@ -5,7 +5,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3774d87f-8555-4a66-88a1-24308baef41e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/auditoria-service/src/main/java/br/com/dev/auditoria/controller/AuditoriaController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/auditoria-service/src/main/java/br/com/dev/auditoria/dto/MissaoConcluidaEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/auditoria-service/src/main/java/br/com/dev/auditoria/kafka/AuditoriaConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/auditoria-service/src/main/java/br/com/dev/auditoria/model/AuditoriaXp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/auditoria-service/src/main/java/br/com/dev/auditoria/repository/AuditoriaRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gateway-service/src/main/java/br/com/dev/gateway/controller/FallbackController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/github-service/src/main/java/br/com/dev/github/controller/GithubController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/github-service/src/main/java/br/com/dev/github/dto/GithubUserResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/github-service/src/main/java/br/com/dev/github/service/GithubService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/missao-service/src/main/java/br/com/dev/missao/client/GithubClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/missao-service/src/main/java/br/com/dev/missao/controller/MissaoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/missao-service/src/main/java/br/com/dev/missao/dto/GithubUserDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/missao-service/src/main/java/br/com/dev/missao/dto/MissaoConcluidaEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/missao-service/src/main/java/br/com/dev/missao/kafka/MissaoProducer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/missao-service/src/main/java/br/com/dev/missao/model/MissaoDev.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/missao-service/src/main/java/br/com/dev/missao/repository/MissaoRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/missao-service/src/main/java/br/com/dev/missao/service/MissaoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/usuario-service/src/main/java/br/com/dev/usuario/controller/UsuarioController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/usuario-service/src/main/java/br/com/dev/usuario/model/Usuario.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/usuario-service/src/main/java/br/com/dev/usuario/repository/UsuarioRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auditoria-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/auditoria-service/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/config-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/github-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/github-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/github-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/github-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/missao-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/missao-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/missao-service/src/main/java/br/com/dev/missao/MissaoServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/missao-service/src/main/java/br/com/dev/missao/MissaoServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/missao-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/missao-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registry-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/registry-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registry-service/src/main/java/br/com/dev/registry/RegistryServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/registry-service/src/main/java/br/com/dev/registry/RegistryServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuario-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/usuario-service/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,11 +51,31 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Docker Compose" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;lucasfischerw&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/lucasfischerw/Trabalho-GB.git&quot;,
+    &quot;accountId&quot;: &quot;fa8bb5e9-0483-4e6b-aa9f-bc25825d7382&quot;
+  }
+}</component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="McpProjectServerCommands">
     <commands />
@@ -28,23 +83,23 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0" />
-      <entry key="S5" value="1.0" />
-      <entry key="S10" value="1.0" />
-      <entry key="S30" value="1.0" />
-      <entry key="S60" value="1.0" />
-      <entry key="M2" value="1.0" />
-      <entry key="M5" value="1.0" />
-      <entry key="M10" value="1.0" />
-      <entry key="M15" value="1.0" />
-      <entry key="M30" value="1.0" />
-      <entry key="H1" value="1.0" />
-      <entry key="H2" value="1.0" />
-      <entry key="H4" value="1.0" />
-      <entry key="D1" value="1.0" />
-      <entry key="W1" value="1.0" />
+      <entry key="MS100" value="1.0000000000130242" />
+      <entry key="MS500" value="1.0066519820917885" />
+      <entry key="S2" value="1.2855865617121363" />
+      <entry key="S5" value="1.6057523492875365" />
+      <entry key="S10" value="1.7783009374833982" />
+      <entry key="S30" value="1.919847539907562" />
+      <entry key="S60" value="1.959086826052554" />
+      <entry key="M2" value="1.979329784113888" />
+      <entry key="M5" value="1.9916800698704766" />
+      <entry key="M10" value="1.9958738483789396" />
+      <entry key="M15" value="2.0006411158486315" />
+      <entry key="M30" value="2.2808261998196686" />
+      <entry key="H1" value="4.590673273886631" />
+      <entry key="H2" value="9.876949582237648" />
+      <entry key="H4" value="15.745553859408115" />
+      <entry key="D1" value="23.870173925528956" />
+      <entry key="W1" value="25.683464633774882" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
@@ -66,23 +121,23 @@
       <entry key="W1" value="0.0" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.2044755146394453" />
-      <entry key="MS500" value="0.7279947744995433" />
-      <entry key="S2" value="0.9237023861136592" />
-      <entry key="S5" value="0.9687524775279487" />
-      <entry key="S10" value="0.9842522428361282" />
-      <entry key="S30" value="0.9947229493320984" />
-      <entry key="S60" value="0.9973579845432122" />
-      <entry key="M2" value="0.9986781185863702" />
-      <entry key="M5" value="0.9994710376021361" />
-      <entry key="M10" value="0.9997354838166624" />
-      <entry key="M15" value="0.9998236481025485" />
-      <entry key="M30" value="0.9999118201634325" />
-      <entry key="H1" value="0.9999559091097129" />
-      <entry key="H2" value="0.9999779543118503" />
-      <entry key="H4" value="0.9999889770951729" />
-      <entry key="D1" value="0.9999981628407576" />
-      <entry key="W1" value="0.999999737548473" />
+      <entry key="MS100" value="0.001953125000016783" />
+      <entry key="MS500" value="0.28893240501838674" />
+      <entry key="S2" value="0.9368020224377697" />
+      <entry key="S5" value="1.4129733507988955" />
+      <entry key="S10" value="1.6677193947076867" />
+      <entry key="S30" value="1.879089577510907" />
+      <entry key="S60" value="1.9381656336652804" />
+      <entry key="M2" value="1.9687291410958623" />
+      <entry key="M5" value="1.987405609737809" />
+      <entry key="M10" value="1.9937308372513425" />
+      <entry key="M15" value="1.999209548967226" />
+      <entry key="M30" value="2.28004397807537" />
+      <entry key="H1" value="4.590011631357122" />
+      <entry key="H2" value="9.876310897831436" />
+      <entry key="H4" value="15.745064178995692" />
+      <entry key="D1" value="23.870053096970487" />
+      <entry key="W1" value="25.683446123694758" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -96,10 +151,19 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "KEY_CHAT_IN_TOOLWINDOW": "false",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.AuditoriaServiceApplication.executor": "Debug",
+    "Spring Boot.ConfigServiceApplication.executor": "Debug",
+    "Spring Boot.GatewayServiceApplication.executor": "Debug",
+    "Spring Boot.GithubServiceApplication.executor": "Debug",
+    "Spring Boot.MissaoServiceApplication.executor": "Debug",
+    "Spring Boot.RegistryServiceApplication.executor": "Debug",
+    "Spring Boot.UsuarioServiceApplication.executor": "Debug",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
     "git-widget-placeholder": "main",
@@ -115,6 +179,87 @@
     "to.speed.mode.migration.done": "true"
   }
 }]]></component>
+  <component name="RunManager" selected="Spring Boot.GatewayServiceApplication">
+    <configuration name="AuditoriaServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UnknownPolicyInFreeMode" />
+      <module name="auditoria-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="br.com.dev.auditoria.AuditoriaServiceApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.dev.auditoria.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GatewayServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UnknownPolicyInFreeMode" />
+      <module name="gateway-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="br.com.dev.gateway.GatewayServiceApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.dev.gateway.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GithubServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UnknownPolicyInFreeMode" />
+      <module name="github-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="br.com.dev.github.GithubServiceApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.dev.github.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MissaoServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UnknownPolicyInFreeMode" />
+      <module name="missao-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="br.com.dev.missao.MissaoServiceApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.dev.missao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UsuarioServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UnknownPolicyInFreeMode" />
+      <module name="usuario-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="br.com.dev.usuario.UsuarioServiceApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.dev.usuario.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.GatewayServiceApplication" />
+        <item itemvalue="Spring Boot.UsuarioServiceApplication" />
+        <item itemvalue="Spring Boot.MissaoServiceApplication" />
+        <item itemvalue="Spring Boot.AuditoriaServiceApplication" />
+        <item itemvalue="Spring Boot.GithubServiceApplication" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
