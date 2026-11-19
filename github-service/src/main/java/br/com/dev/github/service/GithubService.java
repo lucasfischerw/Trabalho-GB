@@ -1,20 +1,22 @@
 package br.com.dev.github.service;
 
-import br.com.dev.github.dto.GithubUserResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import br.com.dev.github.dto.GithubUserResponse;
+
 @Service
 public class GithubService {
 
-    @Value("${github.api.url}")
-    private String githubApiUrl;
+	@Value("${github.api.url:https://api.github.com/users/}")
+	private String githubApiUrl;
 
-    private final RestTemplate restTemplate = new RestTemplate();
+	@Autowired
+	private RestTemplate restTemplate;
 
-    public GithubUserResponse buscarPerfilDev(String username) {
-        String url = githubApiUrl + username;
-        return restTemplate.getForObject(url, GithubUserResponse.class);
-    }
+	public GithubUserResponse getOne(String username) {
+		return restTemplate.getForObject(githubApiUrl + username, GithubUserResponse.class);
+	}
 }

@@ -1,6 +1,7 @@
 package br.com.dev.gateway.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -8,8 +9,18 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/fallback")
 public class FallbackController {
 
-    @GetMapping("/missao")
-    public String missaoFallback() {
-        return "⚠️ O Serviço de Missões está temporariamente indisponível (Circuit Breaker Ativo). Tente novamente mais tarde!";
-    }
+	@GetMapping("/github")
+	public String githubServiceFallback() {
+		return "Service GitHub está indisponível. Tente mais tarde.";
+	}
+
+	@GetMapping("/missao")
+	public String missaoServiceGetFallback() {
+		return "Service missão está indisponível. Tente mais tarde.";
+	}
+
+	@PostMapping("/missao")
+	public String missaoServicePostFallback() {
+		return "Service missão está indisponível. Tente mais tarde.";
+	}
 }

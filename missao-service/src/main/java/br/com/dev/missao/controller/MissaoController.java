@@ -1,57 +1,45 @@
 package br.com.dev.missao.controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
 import br.com.dev.missao.model.MissaoDev;
 import br.com.dev.missao.service.MissaoService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.Parameters;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/missao")
-@RefreshScope
-@RequiredArgsConstructor
-@Tag(name = "Missões da Liga", description = "Validação de missões via GitHub (OpenFeign), cálculo de XP (@RefreshScope) e publicação no Kafka")
+@Tag(name = "Missão", description = "Operações básicas para validação de missões")
 public class MissaoController {
 
-    private final MissaoService missaoService;
+	@Autowired
+	private MissaoService missaoService;
 
-    @Value("${gamification.xp-multiplier:2}")
-    private Integer xpMultiplier;
+	@PostMapping("/{githubUsername}")
+	@Operation(summary = "Validar e salvar missão", description = "Consulta o GitHub via OpenFeign, calcula XP e envia evento ao Kafka")
+	@ApiResponse(responseCode = "200", description = "Missão processada com sucesso")
+	public MissaoDev getOne(@PathVariable String githubUsername) {
+		return missaoService.save(githubUsername);
+	}
 
-    @Value("${gamification.featured-language:Java}")
-    private String featuredLanguage;
-
-    @PostMapping("/validar")
-    @Operation(summary = "Valida uma missão consultando o GitHub via OpenFeign e publica evento no Kafka se concluída")
-    public MissaoDev validarMissao(
-            @RequestParam String githubUsername,
-            @RequestParam(defaultValue = "Desafio Semanal Microsservicos") String tituloMissao,
-            @RequestParam(defaultValue = "5") Integer repositoriosMinimos,
-            @RequestParam(defaultValue = "100") Integer xpBase) {
-
-        return missaoService.validarEConcluirMissao(githubUsername, tituloMissao, repositoriosMinimos, xpBase);
-    }
-
-    @GetMapping
-    @Operation(summary = "Lista todas as missões validadas")
-    public List<MissaoDev> listarTodas() {
-        return missaoService.listarTodas();
-    }
-
-    @GetMapping("/dev/{githubUsername}")
-    @Operation(summary = "Lista o histórico de missões de um desenvolvedor")
-    public List<MissaoDev> listarPorDev(@PathVariable String githubUsername) {
-        return missaoService.listarPorDev(githubUsername);
-    }
-
-    @GetMapping("/temporada-config")
-    @Operation(summary = "Exibe as configurações ativas vindas do Config Server (@RefreshScope)")
-    public String verConfiguracaoTemporada() {
-        return "Linguagem em destaque: " + featuredLanguage + " | Multiplicador de XP: " + xpMultiplier;
-    }
+	@GetMapping
+	@Operation(summary = "Obter lista de missões", description = "Obtém a lista de missões podendo filtrar por githubUsername")
+	@Parameters({
+			@Parameter(name = "githubUsername", description = "Login do desenvolvedor no GitHub", example = "torvalds", required = false)
+	})
+	@ApiResponse(responseCode = "200", description = "Lista de missões")
+	public List<MissaoDev> getAll(@RequestParam(required = false) String githubUsername) {
+		return missaoService.getAll(githubUsername);
+	}
 }

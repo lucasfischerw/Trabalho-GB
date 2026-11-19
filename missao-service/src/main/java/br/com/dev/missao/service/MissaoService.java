@@ -1,96 +1,89 @@
 package br.com.dev.missao.service;
 
-import br.com.dev.missao.client.GithubClient;
-import br.com.dev.missao.dto.GithubUserDTO;
-import br.com.dev.missao.dto.MissaoConcluidaEvent;
-import br.com.dev.missao.kafka.MissaoProducer;
-import br.com.dev.missao.model.MissaoDev;
-import br.com.dev.missao.repository.MissaoRepository;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.stereotype.Service;
-
 import java.time.LocalDateTime;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.stereotype.Service;
+
+import br.com.dev.missao.client.GithubClient;
+import br.com.dev.missao.dto.GithubUserDTO;
+import br.com.dev.missao.evento.MissaoConcluidaEvent;
+import br.com.dev.missao.model.MissaoDev;
+import br.com.dev.missao.repository.MissaoRepository;
+
 @Service
 @RefreshScope
-@RequiredArgsConstructor
-@Slf4j
 public class MissaoService {
 
-    private final MissaoRepository missaoRepository;
-    private final GithubClient githubClient;
-    private final MissaoProducer missaoProducer;
+	private static final int REPOSITORIOS_MINIMOS = 5;
+	private static final int XP_BASE = 100;
 
-    @Value("${gamification.xp-multiplier:2}")
-    private Integer xpMultiplier;
+	@Autowired
+	private GithubClient githubClient;
 
-    @Value("${gamification.featured-language:Java}")
-    private String featuredLanguage;
+	@Autowired
+	private MissaoRepository missaoRepository;
 
-    public MissaoDev validarEConcluirMissao(String githubUsername, String tituloMissao, Integer repositoriosMinimos, Integer xpBase) {
-        // 1. Chama o github-service via OpenFeign
-        GithubUserDTO githubUser = githubClient.buscarPerfilGithub(githubUsername);
-        int reposAtuais = (githubUser != null && githubUser.getPublicRepos() != null) ? githubUser.getPublicRepos() : 0;
+	@Autowired
+	private KafkaTemplate<String, MissaoConcluidaEvent> kafkaTemplate;
 
-        boolean cumpriuMeta = reposAtuais >= repositoriosMinimos;
-        int xpCalculado = calcularXpFinal(cumpriuMeta, xpBase);
+	@Value("${gamification.xp-multiplier:2}")
+	private Integer xpMultiplier;
 
-        MissaoDev missao = new MissaoDev(
-                null,
-                githubUsername,
-                tituloMissao,
-                repositoriosMinimos,
-                reposAtuais,
-                xpBase,
-                xpCalculado,
-                featuredLanguage,
-                cumpriuMeta,
-                LocalDateTime.now()
-        );
+	@Value("${gamification.featured-language:Java}")
+	private String featuredLanguage;
 
-        MissaoDev missaoSalva = missaoRepository.save(missao);
+	public MissaoDev save(String githubUsername) {
+		GithubUserDTO githubDto = githubClient.getOne(githubUsername);
 
-        // 2. Se cumpriu a missão, publica evento assíncrono no Kafka
-        if (cumpriuMeta) {
-            dispararEventoKafka(missaoSalva);
-        }
+		boolean isMissaoConcluida = githubDto.getPublicRepos() >= REPOSITORIOS_MINIMOS;
+		int xpCalculado = calcularXpFinal(isMissaoConcluida);
 
-        return missaoSalva;
-    }
+		MissaoDev missao = MissaoDev.builder()
+				.githubUsername(githubUsername)
+				.tituloMissao("Desafio Microsservicos")
+				.repositoriosMinimos(REPOSITORIOS_MINIMOS)
+				.repositoriosAtuaisNoGithub(githubDto.getPublicRepos())
+				.xpBase(XP_BASE)
+				.xpFinalCalculado(xpCalculado)
+				.linguagemDestaqueTemporada(featuredLanguage)
+				.concluida(isMissaoConcluida)
+				.dataValidacao(LocalDateTime.now())
+				.build();
 
-    // Padrão Kent Beck (Aula 10b): Guard Clause sem if-else aninhado
-    private int calcularXpFinal(boolean cumpriuMeta, Integer xpBase) {
-        if (!cumpriuMeta) {
-            return 0;
-        }
-        return xpBase * xpMultiplier;
-    }
+		missao = missaoRepository.save(missao);
 
-    private void dispararEventoKafka(MissaoDev missaoSalva) {
-        try {
-            MissaoConcluidaEvent event = new MissaoConcluidaEvent(
-                    missaoSalva.getId(),
-                    missaoSalva.getGithubUsername(),
-                    missaoSalva.getTituloMissao(),
-                    missaoSalva.getXpFinalCalculado(),
-                    missaoSalva.getLinguagemDestaqueTemporada(),
-                    missaoSalva.getDataValidacao()
-            );
-            missaoProducer.enviarEventoMissaoConcluida(event);
-        } catch (Exception e) {
-            log.warn("Missao salva no banco, mas o Kafka ainda nao esta ativo: {}", e.getMessage());
-        }
-    }
+		if (isMissaoConcluida) {
+			MissaoConcluidaEvent missaoEvent = MissaoConcluidaEvent.builder()
+					.missaoId(missao.getId())
+					.githubUsername(missao.getGithubUsername())
+					.tituloMissao(missao.getTituloMissao())
+					.xpGanho(missao.getXpFinalCalculado())
+					.linguagemDestaque(missao.getLinguagemDestaqueTemporada())
+					.dataConclusao(missao.getDataValidacao())
+					.build();
 
-    public List<MissaoDev> listarTodas() {
-        return missaoRepository.findAll();
-    }
+			kafkaTemplate.send(MissaoConcluidaEvent.TOPIC, missao.getId().toString(), missaoEvent);
+		}
 
-    public List<MissaoDev> listarPorDev(String githubUsername) {
-        return missaoRepository.findByGithubUsername(githubUsername);
-    }
+		return missao;
+	}
+
+	private int calcularXpFinal(boolean isMissaoConcluida) {
+		if (!isMissaoConcluida) {
+			return 0;
+		}
+		return XP_BASE * xpMultiplier;
+	}
+
+	public List<MissaoDev> getAll(String githubUsername) {
+		if (githubUsername != null) {
+			return missaoRepository.findByGithubUsername(githubUsername);
+		}
+		return missaoRepository.findAll();
+	}
 }

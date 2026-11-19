@@ -1,29 +1,31 @@
 package br.com.dev.auditoria.controller;
 
-import br.com.dev.auditoria.model.AuditoriaXp;
-import br.com.dev.auditoria.repository.AuditoriaRepository;
-import lombok.RequiredArgsConstructor;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import br.com.dev.auditoria.model.AuditoriaXp;
+import br.com.dev.auditoria.service.AuditoriaService;
 
 @RestController
 @RequestMapping("/auditoria")
-@RequiredArgsConstructor
 public class AuditoriaController {
 
-    private final AuditoriaRepository auditoriaRepository;
+	@Autowired
+	private AuditoriaService auditoriaService;
 
-    @GetMapping
-    public List<AuditoriaXp> listarTodasAuditorias() {
-        return auditoriaRepository.findAll();
-    }
+	@GetMapping
+	public List<AuditoriaXp> getAll(@RequestParam(required = false) String githubUsername) {
+		return auditoriaService.getAll(githubUsername);
+	}
 
-    @GetMapping("/dev/{githubUsername}")
-    public List<AuditoriaXp> listarPorDev(@PathVariable String githubUsername) {
-        return auditoriaRepository.findByGithubUsername(githubUsername);
-    }
+	@GetMapping("/dev/{githubUsername}")
+	public List<AuditoriaXp> getByDev(@PathVariable String githubUsername) {
+		return auditoriaService.getAll(githubUsername);
+	}
 }
