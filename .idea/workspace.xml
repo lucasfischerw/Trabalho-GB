@@ -4,48 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3774d87f-8555-4a66-88a1-24308baef41e" name="Changes" comment="Copiado projeto do local">
-      <change afterPath="$PROJECT_DIR$/gateway-service/src/main/java/br/com/dev/gateway/JwtAuthFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gateway-service/src/main/java/br/com/dev/gateway/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/usuario-service/src/main/java/br/com/dev/usuario/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/usuario-service/src/main/java/br/com/dev/usuario/UserInfoDetails.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/usuario-service/src/main/java/br/com/dev/usuario/service/JwtService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/usuario-service/src/main/java/br/com/dev/usuario/service/UserInfoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auditoria-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/auditoria-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auditoria-service/src/main/java/br/com/dev/auditoria/controller/AuditoriaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/auditoria-service/src/main/java/br/com/dev/auditoria/controller/AuditoriaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auditoria-service/src/main/java/br/com/dev/auditoria/dto/MissaoConcluidaEvent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auditoria-service/src/main/java/br/com/dev/auditoria/kafka/AuditoriaConsumer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auditoria-service/src/main/java/br/com/dev/auditoria/model/AuditoriaXp.java" beforeDir="false" afterPath="$PROJECT_DIR$/auditoria-service/src/main/java/br/com/dev/auditoria/model/AuditoriaXp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auditoria-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/auditoria-service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/config-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/config-service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/br/com/dev/gateway/GatewayServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/java/br/com/dev/gateway/GatewayServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/br/com/dev/gateway/controller/FallbackController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/java/br/com/dev/gateway/controller/FallbackController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/github-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/github-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/github-service/src/main/java/br/com/dev/github/GithubServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/github-service/src/main/java/br/com/dev/github/GithubServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/github-service/src/main/java/br/com/dev/github/controller/GithubController.java" beforeDir="false" afterPath="$PROJECT_DIR$/github-service/src/main/java/br/com/dev/github/controller/GithubController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/github-service/src/main/java/br/com/dev/github/service/GithubService.java" beforeDir="false" afterPath="$PROJECT_DIR$/github-service/src/main/java/br/com/dev/github/service/GithubService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/github-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/github-service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/missao-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/missao-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/missao-service/src/main/java/br/com/dev/missao/client/GithubClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/missao-service/src/main/java/br/com/dev/missao/client/GithubClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/missao-service/src/main/java/br/com/dev/missao/controller/MissaoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/missao-service/src/main/java/br/com/dev/missao/controller/MissaoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/missao-service/src/main/java/br/com/dev/missao/dto/MissaoConcluidaEvent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/missao-service/src/main/java/br/com/dev/missao/kafka/MissaoProducer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/missao-service/src/main/java/br/com/dev/missao/model/MissaoDev.java" beforeDir="false" afterPath="$PROJECT_DIR$/missao-service/src/main/java/br/com/dev/missao/model/MissaoDev.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/missao-service/src/main/java/br/com/dev/missao/service/MissaoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/missao-service/src/main/java/br/com/dev/missao/service/MissaoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/missao-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/missao-service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registry-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/registry-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuario-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/usuario-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuario-service/src/main/java/br/com/dev/usuario/UsuarioServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/usuario-service/src/main/java/br/com/dev/usuario/UsuarioServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuario-service/src/main/java/br/com/dev/usuario/controller/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/usuario-service/src/main/java/br/com/dev/usuario/controller/UsuarioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuario-service/src/main/java/br/com/dev/usuario/model/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/usuario-service/src/main/java/br/com/dev/usuario/model/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuario-service/src/main/java/br/com/dev/usuario/repository/UsuarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/usuario-service/src/main/java/br/com/dev/usuario/repository/UsuarioRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuario-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/usuario-service/src/main/resources/application.properties" afterDir="false" />
-    </list>
+    <list default="true" id="3774d87f-8555-4a66-88a1-24308baef41e" name="Changes" comment="Copiado projeto do local" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -89,59 +48,59 @@
     <decayedCancelled>
       <entry key="MS100" value="1.0" />
       <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0000003586301212" />
-      <entry key="S5" value="1.0026415492067755" />
-      <entry key="S10" value="1.0513960038016135" />
-      <entry key="S30" value="1.3718010880181257" />
-      <entry key="S60" value="1.6117641469181507" />
-      <entry key="M2" value="1.9199521225012899" />
-      <entry key="M5" value="3.7998731356646367" />
-      <entry key="M10" value="6.557952431666834" />
-      <entry key="M15" value="8.249805170657162" />
-      <entry key="M30" value="10.850095997876794" />
-      <entry key="H1" value="13.974564264869123" />
-      <entry key="H2" value="19.486501719608615" />
-      <entry key="H4" value="26.110118828223204" />
-      <entry key="D1" value="36.20095308532451" />
-      <entry key="W1" value="38.58029249592359" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0" />
+      <entry key="S10" value="1.0" />
+      <entry key="S30" value="1.0" />
+      <entry key="S60" value="1.0" />
+      <entry key="M2" value="1.0" />
+      <entry key="M5" value="1.0" />
+      <entry key="M10" value="1.0000000000002864" />
+      <entry key="M15" value="1.000000010232851" />
+      <entry key="M30" value="1.000382129052828" />
+      <entry key="H1" value="1.0829328354026238" />
+      <entry key="H2" value="2.5011635111114767" />
+      <entry key="H4" value="8.246960730082947" />
+      <entry key="D1" value="30.23778812216755" />
+      <entry key="W1" value="38.42069717645589" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="9.011888747321504E-58" />
-      <entry key="MS500" value="3.8990891434930726E-12" />
-      <entry key="S2" value="0.0014111680438280783" />
-      <entry key="S5" value="0.08500949728962197" />
-      <entry key="S10" value="0.45595257885652984" />
-      <entry key="S30" value="1.8237378497073273" />
-      <entry key="S60" value="2.6901012556663364" />
-      <entry key="M2" value="3.430963614604191" />
-      <entry key="M5" value="4.620112744761164" />
-      <entry key="M10" value="5.5123068198952225" />
-      <entry key="M15" value="5.924323658115121" />
-      <entry key="M30" value="6.4146389828566335" />
-      <entry key="H1" value="6.694259163720724" />
-      <entry key="H2" value="6.843704121242806" />
-      <entry key="H4" value="6.920974779622262" />
-      <entry key="D1" value="6.986705468153323" />
-      <entry key="W1" value="6.998097728729141" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="0.0" />
+      <entry key="S10" value="0.0" />
+      <entry key="S30" value="1.1682910270513901E-267" />
+      <entry key="S60" value="6.808680293010215E-134" />
+      <entry key="M2" value="5.458373751173053E-67" />
+      <entry key="M5" value="8.816809082242227E-27" />
+      <entry key="M10" value="2.4080351070754515E-13" />
+      <entry key="M15" value="7.3483821107059746E-9" />
+      <entry key="M30" value="2.2591688766927974E-4" />
+      <entry key="H1" value="0.039727456459090926" />
+      <entry key="H2" value="0.5272120699486577" />
+      <entry key="H4" value="1.9209423278304603" />
+      <entry key="D1" value="5.642829725183883" />
+      <entry key="W1" value="6.787758178497134" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="4.4848670972594784E-13" />
-      <entry key="MS500" value="0.003391172765096925" />
-      <entry key="S2" value="0.2423290898094881" />
-      <entry key="S5" value="0.643203776908377" />
-      <entry key="S10" value="1.2276277546943166" />
-      <entry key="S30" value="3.055679519836324" />
-      <entry key="S60" value="4.21752088920129" />
-      <entry key="M2" value="5.3016755134089575" />
-      <entry key="M5" value="8.394254317863284" />
-      <entry key="M10" value="12.054774245621177" />
-      <entry key="M15" value="14.16289705346796" />
-      <entry key="M30" value="17.258452940778067" />
-      <entry key="H1" value="20.665294657231428" />
-      <entry key="H2" value="26.32811179956301" />
-      <entry key="H4" value="33.02985147161638" />
-      <entry key="D1" value="43.187402342005996" />
-      <entry key="W1" value="45.57835197105567" />
+      <entry key="MS100" value="0.7684375906440062" />
+      <entry key="MS500" value="0.9486843151404539" />
+      <entry key="S2" value="0.9869165458858419" />
+      <entry key="S5" value="0.9947459325778691" />
+      <entry key="S10" value="0.9973695065410157" />
+      <entry key="S30" value="0.9991223988885992" />
+      <entry key="S60" value="0.999561103129068" />
+      <entry key="M2" value="0.9997805274804406" />
+      <entry key="M5" value="0.9999122052113171" />
+      <entry key="M10" value="0.9999561016426524" />
+      <entry key="M15" value="0.9999707517812627" />
+      <entry key="M30" value="1.0005931916935273" />
+      <entry key="H1" value="1.122632033643368" />
+      <entry key="H2" value="3.0282106060787" />
+      <entry key="H4" value="10.167556469239864" />
+      <entry key="D1" value="35.88041061267447" />
+      <entry key="W1" value="45.20841820758099" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
