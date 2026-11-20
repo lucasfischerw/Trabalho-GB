@@ -18,9 +18,15 @@ import br.com.dev.usuario.dto.UserInfoRequestDTO;
 import br.com.dev.usuario.model.Usuario;
 import br.com.dev.usuario.service.JwtService;
 import br.com.dev.usuario.service.UserInfoService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.Parameters;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @RequestMapping("/usuario")
+@Tag(name = "Usuário", description = "Operações básicas para cadastro e autenticação de usuários")
 public class UsuarioController {
 
 	@Autowired
@@ -32,17 +38,26 @@ public class UsuarioController {
 	@Autowired
 	private AuthenticationManager authenticationManager;
 
-	@PostMapping({"", "/cadastrar"})
+	@PostMapping
+	@Operation(summary = "Cadastrar usuário", description = "Cadastra um novo usuário com senha criptografada via BCrypt")
+	@ApiResponse(responseCode = "200", description = "Usuário cadastrado com sucesso")
 	public Usuario save(@RequestBody Usuario userInfo) {
 		return userInfoService.save(userInfo);
 	}
 
 	@GetMapping("/token/{token}")
+	@Operation(summary = "Validar token JWT", description = "Verifica se o token JWT informado é válido")
+	@Parameters({
+			@Parameter(name = "token", description = "Access Token JWT", required = true)
+	})
+	@ApiResponse(responseCode = "200", description = "Resultado booleano da validação do token")
 	public boolean isValidToken(@PathVariable String token) {
 		return userInfoService.isValidToken(token);
 	}
 
 	@PostMapping("/login")
+	@Operation(summary = "Autenticar e gerar token JWT", description = "Autentica as credenciais do usuário e retorna o Access Token JWT")
+	@ApiResponse(responseCode = "200", description = "Token JWT gerado com sucesso")
 	public String authenticateAndGetToken(@RequestBody UserInfoRequestDTO userInfoRequestDTO) {
 		try {
 			authenticationManager.authenticate(
@@ -58,6 +73,8 @@ public class UsuarioController {
 	}
 
 	@GetMapping
+	@Operation(summary = "Obter lista de usuários", description = "Obtém a lista de usuários cadastrados")
+	@ApiResponse(responseCode = "200", description = "Lista de usuários")
 	public List<Usuario> getAll() {
 		return userInfoService.getAll();
 	}

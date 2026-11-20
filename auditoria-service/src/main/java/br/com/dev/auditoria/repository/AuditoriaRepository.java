@@ -1,12 +1,14 @@
 package br.com.dev.auditoria.repository;
 
-import br.com.dev.auditoria.model.AuditoriaXp;
+import java.util.List;
+import java.util.UUID;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
+import br.com.dev.auditoria.model.AuditoriaXp;
 
 @Repository
-public interface AuditoriaRepository extends JpaRepository<AuditoriaXp, Long> {
-    List<AuditoriaXp> findByGithubUsername(String githubUsername);
+public interface AuditoriaRepository extends JpaRepository<AuditoriaXp, UUID> {
+	List<AuditoriaXp> findByGithubUsername(String githubUsername);
 }

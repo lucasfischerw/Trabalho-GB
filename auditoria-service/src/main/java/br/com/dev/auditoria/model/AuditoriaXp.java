@@ -1,6 +1,7 @@
 package br.com.dev.auditoria.model;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -23,10 +24,10 @@ import lombok.Setter;
 public class AuditoriaXp {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	@GeneratedValue(strategy = GenerationType.UUID)
+	private UUID id;
 
-	private Long missaoId;
+	private UUID missaoId;
 	private String githubUsername;
 	private String tituloMissao;
 	private Integer xpGanho;

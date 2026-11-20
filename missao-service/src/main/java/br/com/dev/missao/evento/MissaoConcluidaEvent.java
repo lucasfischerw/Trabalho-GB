@@ -1,6 +1,7 @@
 package br.com.dev.missao.evento;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,7 +18,7 @@ public class MissaoConcluidaEvent {
 
 	public static final String TOPIC = "missao-concluida-topic";
 
-	private Long missaoId;
+	private UUID missaoId;
 	private String githubUsername;
 	private String tituloMissao;
 	private Integer xpGanho;

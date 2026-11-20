@@ -22,10 +22,10 @@ O sistema foi dividido em **7 microsserviços independentes**, cada um com sua r
 | **`registry-service`** | `8761` | **Service Discovery (Netflix Eureka):** Catálogo central onde todos os microsserviços se registram ao iniciar, permitindo que se comuniquem pelo nome lógico sem depender de IPs fixos. |
 | **`config-service`** | `8006` | **Config Server:** Lê o diretório `config-repo` no GitHub e distribui configurações dinâmicas (como o multiplicador de XP e a linguagem da temporada) para os demais serviços. |
 | **`gateway-service`** | `8005` | **API Gateway:** Ponto único de entrada do sistema. Roteia as chamadas externas para os serviços internos, valida o token JWT no filtro de segurança e aplica *Circuit Breaker* (Resilience4j) com *Fallback* caso algum serviço caia. |
-| **`usuario-service`** | `8004` | **Autenticação e Usuários:** Gerencia o cadastro de usuários da plataforma (com senha criptografada em `BCrypt`), realiza o login gerando o token **JWT** e valida tokens para o Gateway. |
+| **`usuario-service`** | `8004` | **Autenticação e Usuários:** Gerencia o cadastro de usuários da plataforma (com senha criptografada em `BCrypt` persistida no PostgreSQL), realiza o login gerando o token **JWT** e valida tokens para o Gateway. |
 | **`github-service`** | `8002` | **Integração Externa:** Conecta-se à API externa do GitHub (`https://api.github.com/users/{username}`) usando `RestTemplate` para buscar os dados reais do desenvolvedor. |
-| **`missao-service`** | `8001` | **Motor de Missões:** Serviço principal de negócio. Consulta o `github-service` via **OpenFeign**, aplica as regras de cálculo de XP (usando `@RefreshScope`), salva o resultado no banco H2 e publica o evento de conclusão no **Kafka**. |
-| **`auditoria-service`** | `8003` | **Consumidor de Auditoria:** Escuta o tópico do **Kafka** em segundo plano (`@KafkaListener`) e grava um registro de auditoria toda vez que uma missão é concluída. |
+| **`missao-service`** | `8001` | **Motor de Missões:** Serviço principal de negócio. Consulta o `github-service` via **OpenFeign**, aplica as regras de cálculo de XP (usando `@RefreshScope`), salva o resultado no banco **PostgreSQL** e publica o evento de conclusão no **Kafka**. |
+| **`auditoria-service`** | `8003` | **Consumidor de Auditoria:** Escuta o tópico do **Kafka** em segundo plano (`@KafkaListener`) e grava um registro de auditoria no **PostgreSQL** toda vez que uma missão é concluída. |
 
 ---
 
@@ -66,7 +66,7 @@ Abaixo está o papel prático de cada endpoint e método implementado no projeto
 - **Spring Cloud 2025.0.0** (Netflix Eureka, Config Server, Gateway WebFlux, OpenFeign, CircuitBreaker Resilience4j)
 - **Spring Security** + **JWT (`jjwt`)** + **BCrypt**
 - **Spring for Apache Kafka** (Mensageria assíncrona via Docker)
-- **Spring Data JPA / Hibernate** + **H2 Database** (Banco em memória isolado por serviço)
+- **Spring Data JPA / Hibernate** + **PostgreSQL 16** (Banco de dados relacional persistente via Docker)
 - **SpringDoc OpenAPI 3 / Swagger UI** (Documentação interativa dos endpoints)
 - **Spring Boot Actuator** + **Micrometer / Prometheus** (Monitoramento e métricas)
 - **Lombok** (`@Builder`, `@Getter`, `@Setter`, `@EqualsAndHashCode`)

@@ -4,7 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3774d87f-8555-4a66-88a1-24308baef41e" name="Changes" comment="Copiado projeto do local" />
+    <list default="true" id="3774d87f-8555-4a66-88a1-24308baef41e" name="Changes" comment="Copiado projeto do local">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auditoria-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/auditoria-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auditoria-service/src/main/java/br/com/dev/auditoria/controller/AuditoriaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/auditoria-service/src/main/java/br/com/dev/auditoria/controller/AuditoriaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auditoria-service/src/main/java/br/com/dev/auditoria/model/AuditoriaXp.java" beforeDir="false" afterPath="$PROJECT_DIR$/auditoria-service/src/main/java/br/com/dev/auditoria/model/AuditoriaXp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auditoria-service/src/main/java/br/com/dev/auditoria/repository/AuditoriaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/auditoria-service/src/main/java/br/com/dev/auditoria/repository/AuditoriaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auditoria-service/src/main/java/br/com/dev/missao/evento/MissaoConcluidaEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/auditoria-service/src/main/java/br/com/dev/missao/evento/MissaoConcluidaEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auditoria-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/auditoria-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/missao-service/src/main/java/br/com/dev/missao/evento/MissaoConcluidaEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/missao-service/src/main/java/br/com/dev/missao/evento/MissaoConcluidaEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/missao-service/src/main/java/br/com/dev/missao/model/MissaoDev.java" beforeDir="false" afterPath="$PROJECT_DIR$/missao-service/src/main/java/br/com/dev/missao/model/MissaoDev.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/missao-service/src/main/java/br/com/dev/missao/repository/MissaoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/missao-service/src/main/java/br/com/dev/missao/repository/MissaoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/missao-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/missao-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuario-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/usuario-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuario-service/src/main/java/br/com/dev/usuario/controller/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/usuario-service/src/main/java/br/com/dev/usuario/controller/UsuarioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuario-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/usuario-service/src/main/resources/application.properties" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
